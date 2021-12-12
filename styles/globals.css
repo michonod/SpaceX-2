@@ -13,4 +13,231 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+}
+
+/*  */
+/* HomePage */
+/*  */
+.homePage__container {
+  background: linear-gradient(rgba(0, 0, 0, 0.664), rgba(0, 0, 0, 0.281)),
+    url("../assets/spacex.jpg");
+  background-position: top;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.homePage__container h1 {
+  color: white;
+  font-weight: 300;
+  font-size: 45px;
+  margin-bottom: 20px;
+  animation: rotateHeading 6s;
+  animation-iteration-count: 0.5;
+}
+
+@keyframes rotateHeading {
+  50% {
+    transform: rotate(360deg);
+  }
+}
+
+/*  */
+/* Card */
+/*  */
+
+.card__container {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+.card__container--top {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin: 20px;
+  width: 450px;
+  height: 450px;
+  position: relative;
+}
+
+.card__container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card__container--bottom {
+  padding: 20px 16px;
+}
+
+.card__container--bottom h4,
+h3 {
+  font-weight: 500;
+}
+
+/* Past Missions */
+
+.missions__heading {
+  text-align: center;
+  margin: 20px;
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-color: rgb(38, 184, 184);
+  color: white;
+}
+
+.mission__name {
+  font-weight: 300;
+}
+.rocketImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: -100;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.rocket__container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+
+.details__paragraph {
+  font-size: 16px;
+}
+
+.rocket__container--image {
+  background: url("../public/stars.jpg");
+  width: 100vw;
+  height: 100vh;
+}
+
+.rocket__container--center {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 80vw;
+}
+.rocket__container--center h3,
+h1 {
+  font-weight: 400;
+}
+
+.success {
+  color: rgb(60, 206, 60);
+}
+
+.failure {
+  color: red;
+}
+
+.title {
+  font-size: 17px;
+  color: darkorange;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.buttons__bottom {
+  margin-top: 20px;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+.errorPage h1 {
+  font-size: 40px;
+  font-weight: 300;
+}
+.errorPage h3 {
+  font-weight: 300;
+}
+/*  */
+/* Media queries */
+/*  */
+
+@media screen and (max-width: 830px) {
+  .rocket__container,
+  .rocket__container img {
+    height: 120vh;
+  }
+}
+
+@media screen and (max-width: 501px) {
+  .homePage__container h1 {
+    font-size: 30px;
+  }
+  .buttons__bottom .MuiButton-root {
+    display: none;
+  }
+  .rocket__container--center .title,
+  h1 {
+    font-size: 16px;
+  }
+
+  .missions__heading {
+    font-size: 30px;
+  }
+  .card__container--top {
+    width: 300px;
+    height: 300px;
+  }
+  .rocket__container--center {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 356px) {
+  .card__container--top {
+    width: 250px;
+    height: 250px;
+  }
+  .missions__heading {
+    font-size: 25px;
+  }
+  .mission__name {
+    font-size: 25px;
+  }
+  .rocket__container,
+  .rocket__container img {
+    height: 160vh;
+  }
+}
+
+@media screen and (max-width: 300px), screen and (max-height: 800px) {
+  .rocket__container,
+  .rocket__container img {
+    height: 160vh;
+  }
 }
