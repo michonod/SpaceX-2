@@ -133,7 +133,9 @@ const Mission = (props: { data: any[]; launch_date_utc: number }) => {
             color="secondary"
             startIcon={<AutoStoriesIcon />}
           >
-            <Link href={wikipediaLink}>Wikipedia</Link>
+            <Link href={wikipediaLink}>
+              <a target="_blank">Wikipedia</a>
+            </Link>
           </Button>
           <Button
             style={{ margin: "10px" }}
@@ -141,7 +143,9 @@ const Mission = (props: { data: any[]; launch_date_utc: number }) => {
             color="success"
             startIcon={<VideoFileIcon />}
           >
-            <Link href={videoLink}>Video</Link>
+            <Link href={videoLink}>
+              <a target="_blank">Video</a>
+            </Link>
           </Button>
           <Button
             style={{ margin: "10px" }}
@@ -149,7 +153,9 @@ const Mission = (props: { data: any[]; launch_date_utc: number }) => {
             variant="contained"
             startIcon={<ArticleIcon />}
           >
-            <Link href={articleLink}>Article</Link>
+            <Link href={articleLink}>
+              <a target="_blank">Article</a>
+            </Link>
           </Button>
         </div>
       </div>
