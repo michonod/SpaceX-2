@@ -13,51 +13,21 @@ const Mission = (props: { data: any[]; launch_date_utc: number }) => {
   const router = useRouter();
   const rocketI: number = parseInt(router.query.rocketId as string);
 
-  const date = props.data[rocketI].launch_date_utc
-    ? props.data[rocketI].launch_date_utc
-    : "";
-  const details = props.data[rocketI].details
-    ? props.data[rocketI].details
-    : "No details avaliable";
-  const launchSuccess = props.data[rocketI].launch_success
-    ? props.data[rocketI].launch_success
-    : "Unknown";
-  const articleLink = props.data[rocketI].links.article_link
-    ? props.data[rocketI].links.article_link
-    : "";
-  const videoLink = props.data[rocketI].links.video_link
-    ? props.data[rocketI].links.video_link
-    : "";
-  const wikipediaLink = props.data[rocketI].links.wikipedia
-    ? props.data[rocketI].links.wikipedia
-    : "";
-  const image = props.data[rocketI].links.flickr_images[0]
-    ? props.data[rocketI].links.flickr_images[0]
-    : "";
-  const missionName = props.data[rocketI].mission_name
-    ? props.data[rocketI].mission_name
-    : "";
-  const rocketName = props.data[rocketI].rocket.rocket_name
-    ? props.data[rocketI].rocket.rocket_name
-    : "";
-  const rocketCompany = props.data[rocketI].rocket.rocket.company
-    ? props.data[rocketI].rocket.rocket.company
-    : "";
-  const rocketMass = props.data[rocketI].rocket.rocket.mass.kg
-    ? props.data[rocketI].rocket.rocket.mass.kg
-    : "";
-  const rocketDescription = props.data[rocketI].rocket.rocket.description
-    ? props.data[rocketI].rocket.rocket.description
-    : "";
-  const rocketCountry = props.data[rocketI].rocket.rocket.country
-    ? props.data[rocketI].rocket.rocket.country
-    : "";
-  const rocketType = props.data[rocketI].rocket.rocket_type
-    ? props.data[rocketI].rocket.rocket_type
-    : "";
-  const launchSite = props.data[rocketI].launch_site.site_name_long
-    ? props.data[rocketI].launch_site.site_name_long
-    : "";
+  const date = props.data[rocketI].launch_date_utc ?? "";
+  const details = props.data[rocketI].details ?? "No details avaliable";
+  const launchSuccess = props.data[rocketI].launch_success ?? "Unknown";
+  const articleLink = props.data[rocketI].links.article_link ?? "";
+  const videoLink = props.data[rocketI].links.video_link ?? "";
+  const wikipediaLink = props.data[rocketI].links.wikipedia ?? "";
+  const image = props.data[rocketI].links.flickr_images[0] ?? "";
+  const missionName = props.data[rocketI].mission_name ?? "";
+  const rocketName = props.data[rocketI].rocket.rocket_name ?? "";
+  const rocketCompany = props.data[rocketI].rocket.rocket.company ?? "";
+  const rocketMass = props.data[rocketI].rocket.rocket.mass.kg ?? "";
+  const rocketDescription = props.data[rocketI].rocket.rocket.description ?? "";
+  const rocketCountry = props.data[rocketI].rocket.rocket.country ?? "";
+  const rocketType = props.data[rocketI].rocket.rocket_type ?? "";
+  const launchSite = props.data[rocketI].launch_site.site_name_long ?? "";
 
   //Date
   const dates = new Date(date);
@@ -177,7 +147,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const { data, error } = await client.query({
+  const { data } = await client.query({
     query: gql`
       {
         launchesPast {
